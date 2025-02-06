@@ -1,11 +1,9 @@
-const mylibrary = [];
-
-class Book {
+export class Book {
     constructor(title, author, pages) {
-        this._title = title;
-        this._author = author;
-        this._pages = pages;
-        this._haveRead = false;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.haveRead = false;
     }
 }
 
@@ -21,4 +19,4 @@ const myLibrary = [
     new Book("Brave New World", "Aldous Huxley", 311),
     new Book("War and Peace", "Leo Tolstoy", 1225)
 ];
-
+export default myLibrary;
