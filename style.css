@@ -1,5 +1,13 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 table,
 td,
 th {
     border: 1px solid black;
+}
+
+th {
+    padding: 8px;
 }
