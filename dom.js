@@ -6,13 +6,18 @@ const NUM_COLUMNS = Object.keys(Book).length;
 const LIB_SIZE = myLibrary.length;
 
 
+
+
+
 for (let i = 0; i < LIB_SIZE; i++) {
+    const book = myLibrary[i];
+    const bookProps = Object.entries(book);
     const row = document.createElement('tr');
-    for (let j = 0; j < 4; j++) {
+    bookProps.forEach(([key, value]) => {
         const cell = document.createElement('td');
-        cell.innerText = myLibrary[i].title;
+        cell.innerText = value;
         row.appendChild(cell);
-    }
+    })
     table.appendChild(row);
 }
 
