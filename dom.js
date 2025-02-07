@@ -4,7 +4,7 @@ import { Book } from "./library.js";
 const table = document.querySelector('tbody');
 const NUM_COLUMNS = Object.keys(Book).length;
 const LIB_SIZE = myLibrary.length;
-
+const newBtn = document.getElementById('add-book');
 
 
 
@@ -21,3 +21,13 @@ for (let i = 0; i < LIB_SIZE; i++) {
     table.appendChild(row);
 }
 
+newBtn.addEventListener('click', e => {
+    
+    const row = document.createElement('tr');
+    const cell = document.createElement('td');
+})
+
+newBtn.addEventListener('mouseover', e => {
+    newBtn.style.cursor = 'pointer';
+
+})

@@ -12,21 +12,14 @@ table {
     border: 1px solid black;
 }
 
-td+td::before {
-    border-right: 0.5px solid black;
-    padding: 4px;
-}
 
 th {
     padding: 8px;
 }
 
-/* styles.css */
-.highlight {
-    background-color: lightblue;
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
-    height: 20px;
-    width: 20px;
+
+tfoot {
+    background-color: gray;
+    user-select: none;
+
 }
