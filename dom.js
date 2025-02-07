@@ -22,12 +22,20 @@ for (let i = 0; i < LIB_SIZE; i++) {
 }
 
 newBtn.addEventListener('click', e => {
-    
+
     const row = document.createElement('tr');
     const cell = document.createElement('td');
+    modal.style.display = 'flex';  // Use flex to center the modal content
+    modal.focus(); // Bring focus into the modal for accessibility
 })
 
 newBtn.addEventListener('mouseover', e => {
     newBtn.style.cursor = 'pointer';
 
 })
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+        openFormBtn.focus();
+    }
+});

@@ -24,14 +24,10 @@
         </tfoot>
 
     </table>
-    <!-- Button to open the form -->
-    <button id="openFormBtn">Open Form</button>
 
-    <!-- Modal structure -->
     <div id="modal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-modal="true" tabindex="-1">
         <div class="modal-content">
-            <button id="closeModalBtn" class="close-button" aria-label="Close form">&times;</button>
-            <h2 id="modalTitle">Fill out the form</h2>
+            <h2 id="modalTitle">Add a new book</h2>
             <form id="popupForm">
                 <label for="name">Title:</label>
                 <input id="name" type="text" name="title" required>
@@ -39,7 +35,7 @@
                 <label for="author">Email:</label>
                 <input id="author" type="text" name="author" required>
                 <br>
-                <label for="pages">Pages::</label>
+                <label for="pages">Pages:</label>
                 <input id="pages" type="number" name="pages" required>
                 <button type="submit">Submit</button>
             </form>
