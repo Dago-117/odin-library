@@ -1,7 +1,7 @@
 import myLibrary from "./library.js";
 import { Book } from "./library.js";
 
-const table = document.querySelector('table');
+const table = document.querySelector('tbody');
 const NUM_COLUMNS = Object.keys(Book).length;
 const LIB_SIZE = myLibrary.length;
 
