@@ -47,7 +47,16 @@ tfoot {
     max-width: 90%;
 }
 
-.modal input{
+.modal input {
     margin: 4px;
 
+}
+
+.title-cell:hover {
+    background-color: lightgrey;
+    
+}
+
+.context-menu {
+    display: none;
 }

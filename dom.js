@@ -14,9 +14,17 @@ for (let i = 0; i < LIB_SIZE; i++) {
     const book = myLibrary[i];
     const bookProps = Object.entries(book);
     const row = document.createElement('tr');
+
     bookProps.forEach(([key, value]) => {
         const cell = document.createElement('td');
+
         cell.innerText = value;
+        if (key === 'title') {
+            const contextMenuIcon = document.createElement('span');
+            contextMenuIcon.textContent = '⋮';
+            cell.classList.add('title-cell');
+            cell.appendChild(contextMenuIcon);
+        }
         row.appendChild(cell);
     })
     table.appendChild(row);
@@ -29,7 +37,6 @@ newBtn.addEventListener('click', e => {
 
 newBtn.addEventListener('mouseover', e => {
     newBtn.style.cursor = 'pointer';
-
 })
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
@@ -39,7 +46,7 @@ modal.addEventListener('click', (e) => {
 
 submitBtn.addEventListener('click', e => {
     e.preventDefault();
-    console.log("This button was clicked");
+
     const row = document.createElement('tr');
 
     table.appendChild(row);
@@ -55,6 +62,4 @@ submitBtn.addEventListener('click', e => {
     pagesCell.innerText = pagesInput.value;
     row.appendChild(pagesCell);
     modal.style.display = 'none';
-
-
 })
