@@ -9,6 +9,7 @@ const cell = document.createElement('td');
 const authorInput = document.getElementById('author');
 const titleInput = document.getElementById('title');
 const pagesInput = document.getElementById('pages');
+const contextMenu = document.getElementsByClassName('context-menu');
 
 for (let i = 0; i < LIB_SIZE; i++) {
     const book = myLibrary[i];
@@ -21,6 +22,7 @@ for (let i = 0; i < LIB_SIZE; i++) {
         cell.innerText = value;
         if (key === 'title') {
             const contextMenuIcon = document.createElement('span');
+            contextMenuIcon.classList.add('context-menu');
             contextMenuIcon.textContent = '⋮';
             cell.classList.add('title-cell');
             cell.appendChild(contextMenuIcon);
@@ -63,3 +65,11 @@ submitBtn.addEventListener('click', e => {
     row.appendChild(pagesCell);
     modal.style.display = 'none';
 })
+
+const menus = document.getElementsByClassName('context-menu');
+
+for (let menu of menus) {
+    menu.addEventListener('click', e => {
+        console.log("Clicked on the menu")
+    })
+}
