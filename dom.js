@@ -1,45 +1,49 @@
 import myLibrary from "./library.js";
-import { Book } from "./library.js";
 
-const table = document.querySelector('tbody');
-const LIB_SIZE = myLibrary.length;
-const newBtn = document.getElementById('add-book');
+const tableBody = document.querySelector('tbody');
+const addNewBookBtn = document.getElementById('add-book');
 const submitBtn = document.getElementById('submit-button');
-const cell = document.createElement('td');
 const authorInput = document.getElementById('author');
 const titleInput = document.getElementById('title');
 const pagesInput = document.getElementById('pages');
-const contextMenu = document.getElementsByClassName('context-menu');
+const contextMenuIcons = document.getElementsByClassName('context-menu-icon');
+const contextMenu = document.getElementById('context-menu');
+const editOption = document.getElementById('edit');
+const deleteOption = document.getElementById('delete');
+let rowIndex = 0;
+let selectedRow = null;
 
-for (let i = 0; i < LIB_SIZE; i++) {
-    const book = myLibrary[i];
+for (const book of myLibrary) {
     const bookProps = Object.entries(book);
     const row = document.createElement('tr');
 
     bookProps.forEach(([key, value]) => {
         const cell = document.createElement('td');
-
+        if (key === 'id') return;
         cell.innerText = value;
         if (key === 'title') {
+            row.id = `${value}${rowIndex}`
             const contextMenuIcon = document.createElement('span');
-            contextMenuIcon.classList.add('context-menu');
+            contextMenuIcon.classList.add('context-menu-icon');
             contextMenuIcon.textContent = '⋮';
             cell.classList.add('title-cell');
             cell.appendChild(contextMenuIcon);
         }
         row.appendChild(cell);
     })
-    table.appendChild(row);
+    tableBody.appendChild(row);
+    rowIndex++;
 }
 
-newBtn.addEventListener('click', e => {
+addNewBookBtn.addEventListener('click', e => {
     modal.style.display = 'flex';  // Use flex to center the modal content
     modal.focus(); // Bring focus into the modal for accessibility
-})
+});
 
-newBtn.addEventListener('mouseover', e => {
-    newBtn.style.cursor = 'pointer';
-})
+addNewBookBtn.addEventListener('mouseover', e => {
+    addNewBookBtn.style.cursor = 'pointer';
+});
+
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
         modal.style.display = 'none';
@@ -51,7 +55,7 @@ submitBtn.addEventListener('click', e => {
 
     const row = document.createElement('tr');
 
-    table.appendChild(row);
+    tableBody.appendChild(row);
     const titleCell = document.createElement('td');
     titleCell.innerText = titleInput.value;
     row.appendChild(titleCell);
@@ -64,12 +68,34 @@ submitBtn.addEventListener('click', e => {
     pagesCell.innerText = pagesInput.value;
     row.appendChild(pagesCell);
     modal.style.display = 'none';
+});
+
+
+for (let icon of contextMenuIcons) {
+    icon.addEventListener('click', e => {
+        const rect = icon.getBoundingClientRect();
+        contextMenu.style.top = `${rect.bottom}px`;
+        contextMenu.style.left = `${rect.left}px`;
+        contextMenu.classList.add('context-menu');
+        console.log("Clicked on the menu icon")
+        contextMenu.classList.remove('hide');
+        e.stopPropagation();
+        selectedRow = e.target.closest('tr');
+    })
+}
+
+document.addEventListener('click', e => {
+    contextMenu.classList.add('hide');
 })
 
-const menus = document.getElementsByClassName('context-menu');
+editOption.addEventListener('click', e => {
+    editOption(selectedRow);
+})
 
-for (let menu of menus) {
-    menu.addEventListener('click', e => {
-        console.log("Clicked on the menu")
-    })
+function editRow(row) {
+
+}
+
+function deleteRow(row) {
+    row.remove();
 }

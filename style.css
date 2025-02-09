@@ -1,7 +1,3 @@
-body {
-    background-color: rgb(160, 151, 151);
-}
-
 * {
 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -19,8 +15,13 @@ th {
 
 
 tfoot {
-    background-color: gray;
+    background-color: rgb(234, 249, 245);
     user-select: none;
+
+}
+
+tfoot:hover {
+    background-color: rgb(172, 234, 218);
 
 }
 
@@ -54,10 +55,40 @@ tfoot {
 
 .title-cell:hover {
     background-color: lightgrey;
-    
+
 }
 
-.context-menu {
+.context-menu-icon {
     user-select: none;
     cursor: pointer;
+}
+
+#context-menu {
+    position: fixed;
+    width: 100px;
+    box-shadow: 3px 3px 10px grey;
+    z-index: 9999;
+    background-color: white;
+}
+
+#context-menu>ul {
+    margin: 0;
+    padding: 0;
+}
+
+.context-menu-item {
+    font-size: small;
+    padding: 5px;
+    list-style: none;
+}
+
+.context-menu-item:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.hide {
+    display: none;
 }
