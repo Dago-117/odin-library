@@ -10,7 +10,7 @@ const contextMenuIcons = document.getElementsByClassName('context-menu-icon');
 const contextMenu = document.getElementById('context-menu');
 const editOption = document.getElementById('edit');
 const deleteOption = document.getElementById('delete');
-let rowIndex = 0;
+const modal = document.getElementById('modal');
 let selectedRow = null;
 
 for (const book of myLibrary) {
@@ -31,7 +31,6 @@ for (const book of myLibrary) {
         row.appendChild(cell);
     })
     tableBody.appendChild(row);
-    rowIndex++;
 }
 
 addNewBookBtn.addEventListener('click', e => {
@@ -69,7 +68,6 @@ submitBtn.addEventListener('click', e => {
     modal.style.display = 'none';
 });
 
-
 for (let icon of contextMenuIcons) {
     icon.addEventListener('click', e => {
         const rect = icon.getBoundingClientRect();
@@ -90,6 +88,11 @@ document.addEventListener('click', e => {
 editOption.addEventListener('click', e => {
 
     editRow(selectedRow);
+})
+
+deleteOption.addEventListener('click', e => {
+    console.log("You're trying to delete a row");
+    deleteRow(selectedRow);
 })
 
 function editRow(row) {
