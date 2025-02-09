@@ -7,6 +7,10 @@ export class Book {
         this.pages = pages;
         this.haveRead = false;
     }
+
+    set newTitle(newTitle) {
+        this.title = newTitle;
+    }
 }
 
 const myLibrary = [

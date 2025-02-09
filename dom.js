@@ -16,13 +16,12 @@ let selectedRow = null;
 for (const book of myLibrary) {
     const bookProps = Object.entries(book);
     const row = document.createElement('tr');
-
+    row.id = book.id;
     bookProps.forEach(([key, value]) => {
         const cell = document.createElement('td');
         if (key === 'id') return;
         cell.innerText = value;
         if (key === 'title') {
-            row.id = `${value}${rowIndex}`
             const contextMenuIcon = document.createElement('span');
             contextMenuIcon.classList.add('context-menu-icon');
             contextMenuIcon.textContent = '⋮';
@@ -89,11 +88,19 @@ document.addEventListener('click', e => {
 })
 
 editOption.addEventListener('click', e => {
-    editOption(selectedRow);
+
+    editRow(selectedRow);
 })
 
 function editRow(row) {
-
+    const newTitle = prompt('Change title:');
+    const newAuthor = prompt('Author');
+    const newPages = prompt('Pages');
+    const newStatus = prompt('Status');
+    const cells = row.cells;
+    cells[0].innerText = newTitle;
+    myLibrary[row.id].title = newTitle;
+    console.log(myLibrary);
 }
 
 function deleteRow(row) {
