@@ -3,25 +3,34 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+body {
+    background-color: #717082;
+    display: flex;
+    justify-content: center;
+
+}
+
 table {
 
     border: 1px solid black;
 }
 
 
-th {
-    padding: 8px;
-}
-
-
+th,
 tfoot {
-    background-color: rgb(234, 249, 245);
+    background-color: #82A69C;
+    padding: 8px;
     user-select: none;
 
 }
 
+td {
+    padding: 4px;
+}
+
+
 tfoot:hover {
-    background-color: rgb(172, 234, 218);
+    background-color: #D4D4CC;
 
 }
 
@@ -53,7 +62,7 @@ tfoot:hover {
 
 }
 
-.title-cell:hover {
+.cell:hover {
     background-color: lightgrey;
 
 }

@@ -49,5 +49,20 @@
     </aside>
     <script type="module" src="dom.js"></script>
 </body>
+<div id="edit-modal" class="modal" role="dialog">
+    <div class="modal-content">
+        <h2 id="modalTitle">Edit book</h2>
+        <form id="popupForm">
+            <label for="name">Title:</label>
+            <input id="title" type="text" name="title">
+            <br>
+            <label for="author">Author:</label>
+            <input id="author" type="text" name="author">
+            <br <label for="pages">Pages:</label>
+            <input id="pages" type="number" name="pages">
+            <button id="submit-button" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
 
 </html>

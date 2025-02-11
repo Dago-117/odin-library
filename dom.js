@@ -10,7 +10,8 @@ const contextMenuIcons = document.getElementsByClassName('context-menu-icon');
 const contextMenu = document.getElementById('context-menu');
 const editOption = document.getElementById('edit');
 const deleteOption = document.getElementById('delete');
-const modal = document.getElementById('modal');
+const createModal = document.getElementById('modal');
+const editModal = document.getElementById('edit-modal');
 let selectedRow = null;
 
 for (const book of myLibrary) {
@@ -22,11 +23,7 @@ for (const book of myLibrary) {
         if (key === 'id') return;
         cell.innerText = value;
         if (key === 'title') {
-            const contextMenuIcon = document.createElement('span');
-            contextMenuIcon.classList.add('context-menu-icon');
-            contextMenuIcon.textContent = '⋮';
-            cell.classList.add('title-cell');
-            cell.appendChild(contextMenuIcon);
+            cell.classList.add('cell');
         }
         row.appendChild(cell);
     })
@@ -34,17 +31,17 @@ for (const book of myLibrary) {
 }
 
 addNewBookBtn.addEventListener('click', e => {
-    modal.style.display = 'flex';  // Use flex to center the modal content
-    modal.focus(); // Bring focus into the modal for accessibility
+    createModal.style.display = 'flex';  // Use flex to center the modal content
+    createModal.focus(); // Bring focus into the modal for accessibility
 });
 
 addNewBookBtn.addEventListener('mouseover', e => {
     addNewBookBtn.style.cursor = 'pointer';
 });
 
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
+createModal.addEventListener('click', (e) => {
+    if (e.target === createModal) {
+        createModal.style.display = 'none';
     }
 });
 
@@ -65,7 +62,7 @@ submitBtn.addEventListener('click', e => {
     const pagesCell = document.createElement('td');
     pagesCell.innerText = pagesInput.value;
     row.appendChild(pagesCell);
-    modal.style.display = 'none';
+    createModal.style.display = 'none';
 });
 
 for (let icon of contextMenuIcons) {
@@ -86,7 +83,6 @@ document.addEventListener('click', e => {
 })
 
 editOption.addEventListener('click', e => {
-
     editRow(selectedRow);
 })
 
@@ -96,10 +92,7 @@ deleteOption.addEventListener('click', e => {
 })
 
 function editRow(row) {
-    const newTitle = prompt('Change title:');
-    const newAuthor = prompt('Author');
-    const newPages = prompt('Pages');
-    const newStatus = prompt('Status');
+    editModal.style.display = 'flex';
     const cells = row.cells;
     cells[0].innerText = newTitle;
     myLibrary[row.id].title = newTitle;
