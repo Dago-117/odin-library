@@ -6,7 +6,6 @@ const submitBtn = document.getElementById('submit-button');
 const authorInput = document.getElementById('author');
 const titleInput = document.getElementById('title');
 const pagesInput = document.getElementById('pages');
-const contextMenuIcons = document.getElementsByClassName('context-menu-icon');
 const contextMenu = document.getElementById('context-menu');
 const editOption = document.getElementById('edit');
 const deleteOption = document.getElementById('delete');
@@ -22,11 +21,10 @@ for (const book of myLibrary) {
         const cell = document.createElement('td');
         if (key === 'id') return;
         cell.innerText = value;
-        if (key === 'title') {
-            cell.classList.add('cell');
-        }
+        cell.classList.add('cell');
         row.appendChild(cell);
-    })
+        addInteractivity(cell);
+    });
     tableBody.appendChild(row);
 }
 
@@ -40,9 +38,8 @@ addNewBookBtn.addEventListener('mouseover', e => {
 });
 
 createModal.addEventListener('click', (e) => {
-    if (e.target === createModal) {
-        createModal.style.display = 'none';
-    }
+    createModal.style.display = 'none';
+
 });
 
 submitBtn.addEventListener('click', e => {
@@ -65,18 +62,6 @@ submitBtn.addEventListener('click', e => {
     createModal.style.display = 'none';
 });
 
-for (let icon of contextMenuIcons) {
-    icon.addEventListener('click', e => {
-        const rect = icon.getBoundingClientRect();
-        contextMenu.style.top = `${rect.bottom}px`;
-        contextMenu.style.left = `${rect.left}px`;
-        contextMenu.classList.add('context-menu');
-        console.log("Clicked on the menu icon")
-        contextMenu.classList.remove('hide');
-        e.stopPropagation();
-        selectedRow = e.target.closest('tr');
-    })
-}
 
 document.addEventListener('click', e => {
     contextMenu.classList.add('hide');
@@ -101,4 +86,17 @@ function editRow(row) {
 
 function deleteRow(row) {
     row.remove();
+}
+
+function addInteractivity(cell) {
+    cell.addEventListener('click', e => {
+        const rect = cell.getBoundingClientRect();
+        contextMenu.style.top = `${rect.bottom}px`;
+        contextMenu.style.left = `${rect.left}px`;
+        contextMenu.classList.add('context-menu');
+        console.log("Clicked on the menu icon")
+        contextMenu.classList.remove('hide');
+        e.stopPropagation();
+        selectedRow = e.target.closest('tr');
+    })
 }

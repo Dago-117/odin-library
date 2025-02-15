@@ -4,65 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>My Library</title>
 </head>
 
 <body>
-    <table>
-        <tr id="header-row">
-            <th>Title</th>
-            <th>Author</th>
-            <th>Pages</th>
-            <th>Status</th>
-        </tr>
-        <tbody>
 
-        </tbody>
-        <tfoot>
-            <td colspan="4" id="add-book">Add new +</td>
-        </tfoot>
-
-    </table>
-
-    <div id="modal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-modal="true" tabindex="-1">
-        <div class="modal-content">
-            <h2 id="modalTitle">Add a new book</h2>
-            <form id="popupForm">
-                <label for="name">Title:</label>
-                <input id="title" type="text" name="title" required>
-                <br>
-                <label for="author">Author:</label>
-                <input id="author" type="text" name="author" required>
-                <br>
-                <label for="pages">Pages:</label>
-                <input id="pages" type="number" name="pages" required>
-                <button id="submit-button" type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
-    <aside id="context-menu" class="hide">
-        <ul>
-            <li id="edit" class="context-menu-item">Edit</li>
-            <li id="delete" class="context-menu-item">Delete</li>
-        </ul>
-    </aside>
-    <script type="module" src="dom.js"></script>
 </body>
-<div id="edit-modal" class="modal" role="dialog">
-    <div class="modal-content">
-        <h2 id="modalTitle">Edit book</h2>
-        <form id="popupForm">
-            <label for="name">Title:</label>
-            <input id="title" type="text" name="title">
-            <br>
-            <label for="author">Author:</label>
-            <input id="author" type="text" name="author">
-            <br <label for="pages">Pages:</label>
-            <input id="pages" type="number" name="pages">
-            <button id="submit-button" type="submit">Submit</button>
-        </form>
-    </div>
-</div>
 
 </html>
