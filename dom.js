@@ -1,7 +1,7 @@
 import myLibrary from './library.js'
 
 const tableBody = document.querySelector('tbody');
-
+const modal = document.getElementById('edit-modal');
 const generateTable = () => {
     for (let book of myLibrary) {
         const row = document.createElement('tr');
@@ -14,14 +14,32 @@ const generateTable = () => {
             cell.textContent = book[key];
             row.appendChild(cell);
         }
-        const updateCell = document.createElement('td');
-        updateCell.innerHTML = "<button class='edit'>Edit</button><button class = 'delete'>Delete</button>"
-        updateCell.classList.add('update-cell');
-        row.appendChild(updateCell);
+        generateUpdateColumn(row);
         tableBody.appendChild(row);
     }
 }
 
+const generateUpdateColumn = row => {
+    const updateCell = document.createElement('td');
+    const editButton = document.createElement('button');
+    const deleteButton = document.createElement('button');
+    editButton.textContent = 'Edit';
+    deleteButton.textContent = 'Delete';
+    editButton.classList.add('edit');
+    deleteButton.classList.add('delete');
+    updateCell.classList.add('update-cell');
+    editFunctionality(editButton);
+    updateCell.appendChild(editButton);
+    updateCell.appendChild(deleteButton);
+    row.appendChild(updateCell);
+}
 
+const editFunctionality = editButton => {
+    editButton.addEventListener('click', () => {
+        console.log("Edit button has been clicked!")
+        modal.style.display = 'flex';
 
+    })
+}
 generateTable();
+
