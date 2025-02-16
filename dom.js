@@ -39,7 +39,13 @@ const editFunctionality = editButton => {
         console.log("Edit button has been clicked!")
         modal.style.display = 'flex';
 
+    });
+    document.addEventListener('click', e => {
+        if (e.target === modal)
+            modal.style.display = 'none';
     })
 }
+
+
 generateTable();
 

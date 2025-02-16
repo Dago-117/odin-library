@@ -21,7 +21,7 @@ table {
 th {
     background-color: rgb(178, 220, 206);
     padding: 5px 10px;
-    border-bottom: 6px rgb(166, 198, 227) solid
+    border-bottom: 1.5px black solid
 }
 
 td {
