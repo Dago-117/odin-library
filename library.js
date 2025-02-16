@@ -5,7 +5,7 @@ export class Book {
         this.title = title;
         this.author = author;
         this.pages = pages;
-        this.haveRead = false;
+        this.haveRead = 'Not Read';
     }
 
     set newTitle(newTitle) {

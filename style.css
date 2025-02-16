@@ -2,12 +2,44 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(86, 86, 141);
+}
+
+table {
+    border-spacing: 0px;
+    border-collapse: separate;
+    border: 3px solid black;
+    
+}
+
 th {
     background-color: rgb(178, 220, 206);
     padding: 5px 10px;
+    border-bottom: 6px rgb(166, 198, 227) solid
 }
 
 td {
-    background-color: aliceblue;
+    background-color: rgb(166, 198, 227);
     padding: 5px 10px;
+}
+
+.update-cell {
+    display: flex;
+    gap: 9px;
+}
+
+.update-cell button {
+    border: 1.3px black solid;
+    cursor: pointer;
+}
+
+.edit {
+    background-color: rgb(180, 205, 227);
+}
+
+.delete {
+    background-color: rgb(246, 135, 135);
 }
