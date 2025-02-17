@@ -43,8 +43,16 @@ td {
     background-color: rgb(180, 205, 227);
 }
 
+.edit:hover {
+    background-color: rgb(100, 166, 224);
+}
+
 .delete {
     background-color: rgb(246, 135, 135);
+}
+
+.delete:hover{
+    background-color: rgb(240, 83, 83);
 }
 
 #edit-modal {
