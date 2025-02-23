@@ -39,6 +39,7 @@ const generateUpdateCell = row => {
     deleteButton.classList.add('delete');
     updateCell.classList.add('update-cell');
     editFunctionality(editButton);
+    deleteFunctionality(deleteButton);
     updateCell.appendChild(editButton);
     updateCell.appendChild(deleteButton);
     row.appendChild(updateCell);
@@ -59,6 +60,14 @@ const editFunctionality = (editButton) => {
     })
 }
 
+const deleteFunctionality = (deleteButton) => {
+    deleteButton.addEventListener('click', e => {
+        selectedRow = e.target.closest('tr');
+        selectedRow.remove();
+
+    })
+
+}
 submitBtn.addEventListener('click', () => {
     console.log("Row index is: " + selectedRowIndex);
     const rowCells = selectedRow.children;
